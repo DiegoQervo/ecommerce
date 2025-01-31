@@ -1,0 +1,1 @@
+export const googleapi = "no tengo tarjeta de debito"

@@ -1,0 +1,84 @@
+ [
+    {
+      "id":1,
+      "createdAt":1734057537,
+      "idUser":1,
+      "total":120000,
+      "products":[
+         {
+            "id":2,
+            "title":"Iphone X",
+            "description":"SIM-Free Model",
+            "price":899,
+            "discountPercentage":17.94,
+            "rating":4.44,
+            "stock":34,
+            "brand":"Apple",
+            "category":"smartphones",
+            "thumbnail":"",
+            "images":[
+                "",
+                ""
+            ]
+        },
+        {
+            "id":3,
+            "title":"Samsung Galaxy",
+            "description":"Samsung Galaxy Book",
+            "price":1299,
+            "discountPercentage":5.14,
+            "rating":4.44,
+            "stock":50,
+            "brand":"Android",
+            "category":"smartphones",
+            "thumbnail":"",
+            "images":[
+                "",
+                ""
+            ]
+        }
+      ]
+
+    },
+    {
+        "id":2,
+      "createdAt":1734057000,
+      "idUser":1,
+      "total":120000,
+      "products":[
+         {
+            "id":2,
+            "title":"Iphone X",
+            "description":"SIM-Free Model",
+            "price":899,
+            "discountPercentage":17.94,
+            "rating":4.44,
+            "stock":34,
+            "brand":"Apple",
+            "category":"smartphones",
+            "thumbnail":"",
+            "images":[
+                "",
+                ""
+            ]
+        },
+        {
+            "id":3,
+            "title":"Samsung Galaxy",
+            "description":"Samsung Galaxy Book",
+            "price":1299,
+            "discountPercentage":5.14,
+            "rating":4.44,
+            "stock":50,
+            "brand":"Android",
+            "category":"smartphones",
+            "thumbnail":"",
+            "images":[
+                "",
+                ""
+            ]
+        }
+      ]
+
+    }
+ ]
