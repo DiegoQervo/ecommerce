@@ -1,11 +1,13 @@
 
-import { StatusBar, StyleSheet} from 'react-native';
+import { StatusBar } from 'react-native';
 import { colors } from './src/globals/colors';
 import Navigator from './src/navigation/Navigator';
 import { useFonts } from 'expo-font';
 import { fonts } from './src/globals/fonts';
 import {Provider} from 'react-redux' /* no se importo solo */
 import {store} from './src/store';
+//import dotenv from 'dotenv' 
+import { useEffect } from 'react';
 
 
 
@@ -14,6 +16,8 @@ import {store} from './src/store';
 
 export default function App() {
 
+
+  //dotenv.config()
   const [fontsloaded] = useFonts(fonts)
 
     if(!fontsloaded){
@@ -30,8 +34,4 @@ export default function App() {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex:1,
-  },
-});
+

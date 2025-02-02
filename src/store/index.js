@@ -5,7 +5,7 @@ import { shopApi } from "../services/shop";
 import { setupListeners } from "@reduxjs/toolkit/query";
 import { ordersApi } from "../services/orders";
 import { authApi } from "../services/auth";
-import { useReducer } from "react";
+import  useReducer  from "../features/userSlice";
 import { userApi } from "../services/user";
 import { cartApi } from "../services/cart";
 

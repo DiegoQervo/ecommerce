@@ -1,15 +1,15 @@
-import { StyleSheet, Text, View } from 'react-native'
+
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import Cart from '../data/screens/Cart'
 import Header from '../components/Header'
 import ImageSelector from '../data/screens/ImageSelector'
 import LocationSelector from '../data/screens/LocationSelector'
+import MyProfile from '../data/screens/Myprofile'
 
 const Stack = createNativeStackNavigator()
 
 const MyProfileStack = () => {
   return (
-    <Stack.Navigator
+    <Stack.Navigator  
     screenOptions={({route})=>({
 
             header: () => {
@@ -25,5 +25,3 @@ const MyProfileStack = () => {
 }
 
 export default MyProfileStack
-
-const styles = StyleSheet.create({})

@@ -23,7 +23,7 @@ export const insertSession = async (localId,email,idToken) => {
 
     }catch(error){
         return error
-}
+    }
 
 }
 

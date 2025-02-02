@@ -1,5 +1,4 @@
 import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
 import Entypo from '@expo/vector-icons/Entypo';
 import { colors } from '../globals/colors';
 
@@ -17,7 +16,7 @@ export default TabBarIcon
 const styles = StyleSheet.create({
     container:{
         width:60,
-        backgroundColor:"red",
+        gap:5,
         alignItems:"center"
     },
     text:{

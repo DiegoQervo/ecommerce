@@ -3,10 +3,11 @@ import React from 'react'
 import { colors } from '../globals/colors'
 import { useNavigation } from '@react-navigation/native'
 
+
 const CardProduct = ({product}) => {
 
     const {title,price,stock,thumbnail} = product
-    const {height,width} = useWindowDimensions()
+    const {height,width} = useWindowDimensions() //import??
     const navigation = useNavigation()
 
   return (
@@ -64,6 +65,4 @@ const styles = StyleSheet.create({
       color:colors.lightGray,
       fontSize:12
     }
-
-
 })

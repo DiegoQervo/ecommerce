@@ -1,6 +1,4 @@
 import { StyleSheet, Text, View, FlatList } from 'react-native'
-import React from 'react'
-import orders from '../orders.json'
 import CardOrder from '../../components/CardOrder'
 import { useSelector } from 'react-redux'
 import { useGetOrdersUserQuery } from '../../services/orders'

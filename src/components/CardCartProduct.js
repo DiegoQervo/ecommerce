@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 
 const CardCartProduct = ({product}) => {
 
-    const {title, description, price} = product
+    const {title, description, price, quantity} = product
     const localId = useSelector(state => state.user.localId)
     const [triggerDeleteItemCart] = useDeleteCartProductMutation()
     const deleteCartProduct = () => {
@@ -21,7 +21,7 @@ const CardCartProduct = ({product}) => {
             <Text style = {styles.description}>{description}</Text>
             <View style = {styles.containerText}>
             <Text style = {styles.text}>Precio: {price}$ ARG</Text>
-            <Text style = {styles.text}>Cantidad: 1</Text>
+            <Text style = {styles.text}>Cantidad: {quantity}</Text>
         </View>
       </View>
         <Pressable onPress={deleteCartProduct}>
@@ -36,7 +36,7 @@ export default CardCartProduct
 
 const styles = StyleSheet.create({
     container:{
-        backgroundColor:colors.lightGray,
+        backgroundColor:colors.primary,
         margin:10,
         borderRadius:5,
         padding:15,

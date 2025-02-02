@@ -1,6 +1,6 @@
 import { base_url } from "../database";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { useGetOrdersQuery } from "./shop";
+
 
 export const ordersApi = createApi({
     reducerPath:"ordersApi",
@@ -18,7 +18,7 @@ export const ordersApi = createApi({
         getOrderUser:builder.query({
             query:({localId}) => `orders/${localId}.json`,
             transformResponse:(response) => {
-                if(!response) return []
+                if(!response) return null
                 const data = Object.entries(response).map(item => ({...item[1],id:item[0]}))
                 return data
             },

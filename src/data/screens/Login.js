@@ -1,8 +1,8 @@
 import { StyleSheet, Text, View, Pressable } from 'react-native'
-import React from 'react'
 import { useState } from 'react'
 import { colors } from '../../globals/colors'
 import InputForm from '../../components/InputForm'
+import SubmitButton from '../../components/SubmitButton'  
 import { useNavigation } from '@react-navigation/native'
 import { useLoginMutation } from '../../services/auth'
 import { useDispatch } from 'react-redux'
@@ -49,9 +49,9 @@ const Login = () => {
     }
 
   return (
-    <View>
-        <View>
-            <Text>Login to start</Text>
+    <View style = {styles.main}>       
+      <View style = {styles.container}>
+            <Text style = {styles.title}>Login to start</Text>
             <InputForm
             label = "Email"
             value = {email}
@@ -67,9 +67,9 @@ const Login = () => {
             error = {passwordError}       
             />
             <SubmitButton onPress = {onSubmit} title = "Ingresar"/> 
-            <Text>Not have an account?</Text>
+            <Text style = {styles.sub}>Not have an account?</Text>
             <Pressable onPress={()=> navigation.navigate("Signup")}>
-                <Text>Sign Up</Text>
+                <Text style = {styles.subLink}>Sign Up</Text>
             </Pressable>
         </View>
     </View>
@@ -78,4 +78,34 @@ const Login = () => {
 
 export default Login
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  main:{
+    flex:1,
+    justifyContent:"center",
+    alignItems:"center"
+  },
+  container:{
+    width:"90%",
+    backgroundColor:colors.primary,
+    gap:15,
+    borderRadius:10,
+    justifyContent:"center",
+    alignItems:"center",
+    paddingVertical:20
+  },
+  title:{
+    fontSize:22,
+    fontFamily:"Lobster",
+    color:colors.lightGray
+  },
+  sub:{
+      fontSize:14,
+      fontFamily:"Josefin",
+      color:colors.lightGray
+  },
+  subLink:{
+      fontSize:14,
+      fontFamily:"Josefin",
+      color:colors.lightGray
+  }
+})

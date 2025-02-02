@@ -1,7 +1,5 @@
 import { StyleSheet, View, Button } from 'react-native'
-import React from 'react'
-import Categories from '../categorias.json'
-import Counter from '../../components/Counter'
+import Categories from '../../components/Categories'
 
 
 const Home = () => {

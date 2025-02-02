@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, Pressable } from 'react-native'
-import React from 'react'
 import { useState } from 'react'
 import InputForm from '../../components/InputForm'
+import SubmitButton from '../../components/SubmitButton'
 import { colors } from '../../globals/colors'
 import { useNavigation } from '@react-navigation/native'
 import { useSignUPMutation } from '../../services/auth'
@@ -25,14 +25,14 @@ const Signup = () => {
 
     const onSubmit = async () => {
       try{
-        signupSchema.validateSync({email,password});
+        signupSchema.validateSync({email,password, confirmPassword});
 
         const response = await triggerSignup({email,password})
         const user = {
           email:response.data.email,
           idToken:response.data.idToken,
           localId:response.data.localId
-        };
+        }
         dispatch(setUser(user))
                 await deleteSesion()
                 await insertSession(user.localId,user.email,user.idToken)
@@ -41,13 +41,17 @@ const Signup = () => {
           case "email":
             setEmailError(error.message)
             setPasswordError("")
+            setConfirmPasswordError("")
             break
           case "password":
             setPasswordError(error.message)
             setEmailError("")
+            setConfirmPasswordError("")
             break
           case "confirmPassword":
             setConfirmPassword(error.message)
+            setEmailError("")
+            setPasswordError("")
             break
           
         }
@@ -58,9 +62,9 @@ const Signup = () => {
     }
 
   return (
-    <View>
-        <View>
-            <Text>Registrarme</Text>
+    <View style = {styles.main}>
+        <View style = {styles.container}>
+            <Text style = {styles.title}>Registrarme</Text>
             <InputForm
             label = "Email"
             value = {email}
@@ -83,9 +87,9 @@ const Signup = () => {
             error = {confirmPasswordError}
             />
             <SubmitButton title = "Send" onPress = {onSubmit}/>
-            <Text>Already have an account?</Text>
+            <Text style = {styles.sub}>Already have an account?</Text>
             <Pressable onPress={() => {navigation.navigate("Login")}}>
-                <Text>Login</Text>
+                <Text style = {styles.subLink}>Login</Text>
             </Pressable>
         </View>
     </View>
@@ -94,4 +98,34 @@ const Signup = () => {
 
 export default Signup
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  main:{
+    flex:1,
+    justifyContent:"center",
+    alignItems:"center"
+  },
+  container:{
+    width:"90%",
+    backgroundColor:colors.primary,
+    gap:15,
+    borderRadius:10,
+    justifyContent:"center",
+    alignItems:"center",
+    paddingVertical:20
+  },
+  title:{
+    fontSize:22,
+    fontFamily:"Lobster",
+    color:colors.lightGray
+  },
+  sub:{
+    fontSize:14,
+    fontFamily:"Josefin",
+    color:colors.lightGray
+  },
+  subLink:{
+    fontSize:14,
+    fontFamily:"Josefin",
+    color:colors.lightGray
+  }
+})

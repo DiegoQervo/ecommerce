@@ -1,12 +1,11 @@
-import React from 'react'
 import ShopStack from './ShopStack'
 import CartStack from './CartStack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import OrderStack from './OrderStack'
 import { StyleSheet } from 'react-native'
 import TabBarIcon from '../components/TabBarIcon'
+import { colors } from '../globals/colors'
 import Myprofile from '../data/screens/Myprofile'
-import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import MyProfileStack from './MyProfileStack'
 
 const Tab = createBottomTabNavigator();
@@ -65,6 +64,7 @@ export default TabNavigation
 
 const styles = StyleSheet.create({
   tabBar:{
-
-  }
+    backgroundColor:colors.primary,
+    height:70
+}
 })

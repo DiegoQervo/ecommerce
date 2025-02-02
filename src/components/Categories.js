@@ -1,7 +1,5 @@
 import { StyleSheet, FlatList, View, Text} from 'react-native'
-import React from 'react'
 import CardItemCategory from './CardItemCategory' 
-import { useSelector } from 'react-redux'
 import { useGetCategoriasQuery } from '../services/shop'
 
 
@@ -25,6 +23,6 @@ export default Categories
 
 const styles = StyleSheet.create({
   containerCard:{
-    paddingBottom:50
+    paddingBottom:60
   }
 })

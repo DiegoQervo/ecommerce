@@ -1,14 +1,11 @@
-import { Pressable, StyleSheet, Text, View, useWindowDimensions } from 'react-native'
-import React from 'react'
-import { Colors } from 'react-native/Libraries/NewAppScreen'
+import { Pressable, StyleSheet, Text, View} from 'react-native'
 import { colors } from '../globals/colors'
-import { useEffect, useState } from 'react'
 import ArrowGoBack from './ArrowGoBack'
 import { useNavigation } from '@react-navigation/native'
 import AntDesign from '@expo/vector-icons/AntDesign';
 import { useDispatch } from 'react-redux'
 import { deleteSesion } from '../config/dbSQL'
-import deleteUser from '../features/userSlice'
+import {deleteUser} from '../features/userSlice'
 
 const Header = ({title}) => {
 
@@ -44,5 +41,10 @@ const styles = StyleSheet.create({
     title:{
         color:colors.lightGray,
         fontSize:16,
+        fontFamily:"Roboto_700Bold"
+    },
+    logout:{
+        position:"absolute",
+        right:10
     }
 })

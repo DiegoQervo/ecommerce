@@ -9,10 +9,14 @@ export const cartApi = createApi({
         getCart:builder.query({
             query:({localId}) => `carts/${localId}.json`,
             transformResponse:(response) => {
-                if(!response) return []
+                if(!response) return null
                 const data = Object.entries(response).map(item => ({...item[1],id:item[0]}))
                 return data 
             },
+            providesTags:["addProduct", "deleteProduct"]
+        }),
+        getProductCart:builder.query({
+            query:({localId,productId}) => `carts/${localId}/${productId}.json`,
             providesTags:["addProduct", "deleteProduct"]
         }),
         postCart:builder.mutation({
@@ -23,6 +27,13 @@ export const cartApi = createApi({
             }),
             invalidatesTags:["addProduct"]
         }), 
+        deleteCartProduct:builder.mutation({
+            query:({localId,productId}) => ({
+                url:`carts/${localId}/${productId}.json`,
+                method:"DELETE"
+            }),
+            invalidatesTags:["deleteProduct"]
+        }),
         deleteCart:builder.mutation({
             query:({localId}) => ({
                 url:`carts/${localId}.json`,
@@ -33,4 +44,4 @@ export const cartApi = createApi({
     })
 })
 
-export const {useGetCartQuery,usePostCartMutation, useDeleteCartProductMutation, useDeleteCartMutation} = cartApi  
+export const {useGetCartQuery,usePostCartMutation, useDeleteCartProductMutation, useDeleteCartMutation, useGetProductCartQuery} = cartApi  

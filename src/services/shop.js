@@ -6,10 +6,10 @@ export const shopApi = createApi({
     baseQuery:fetchBaseQuery({baseUrl:base_url}),
     endpoints:(builder) => ({
         getCategorias:builder.query({
-            query:(category) => `categorias.json?orderBy="category"&equalTo="${category}"`
+            query:(category) => `products.json?orderBy="category"&equalTo="${category}"`
         }),
         getOrders:builder.query({
-            query:() => "orders.json"
+            query:() => "categorias.json"
         }),
     })
 })

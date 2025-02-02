@@ -1,4 +1,3 @@
-import { StyleSheet, Text, View } from 'react-native'
 import Home from '../data/screens/Home'
 import ProductsByCategory from '../data/screens/ProductsByCategory';
 import ProductDetail from '../data/screens/ProductDetail'
@@ -10,7 +9,7 @@ const ShopStack = () => {
     const Stack = createNativeStackNavigator()
 
   return (
-    <View>
+  
             <Stack.Navigator
           screenOptions={({route})=>({
             header: () => {
@@ -28,7 +27,7 @@ const ShopStack = () => {
             <Stack.Screen name='ProductsByCategory' component={ProductsByCategory}/>
             <Stack.Screen name='ProductDetail' component={ProductDetail}/>
           </Stack.Navigator>
-    </View>
+    
   )
 }
 

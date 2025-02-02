@@ -1,7 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native'
-import React, { useEffect } from 'react'
 import SubmitButton from '../../components/SubmitButton'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import MapPreview from '../../components/MapPreview'
 import * as Location from 'expo-location'
 import { googleapi } from '../../googleApi'
@@ -64,7 +63,7 @@ const LocationSelector = () => {
     <View style = {styles.container}>
       <Text>Direccion: {address}</Text>
       <MapPreview location = {location}/>
-      <SubmitButton title = "seleccionar ubicacion" onPress = {handleConfirmLocation}/>
+      <SubmitButton title = "Confirmar ubicacion" onPress = {handleConfirmLocation}/>
     </View>
   )
 }

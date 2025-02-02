@@ -1,8 +1,8 @@
 import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native'
-import React, { useState } from 'react'
 import AntDesign from '@expo/vector-icons/AntDesign';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { colors } from '../globals/colors';
+import { useState } from 'react';
 
 const Search = ({onChangeKeyword}) => {
 
@@ -11,6 +11,7 @@ const Search = ({onChangeKeyword}) => {
 
     const search = () => {
       const regex = /[+\-%]/
+
       if(regex.test(TextInput)){
         return setError("no valido")
       }
@@ -36,7 +37,7 @@ const Search = ({onChangeKeyword}) => {
             placeholder='Buscar'
             />
         <Pressable style = {styles.button} onPress={search}>
-          <AntDesign name="search1" size={30} color="black" />
+          <AntDesign name="search" size={30} color="black" />
         </Pressable>
         <Pressable style = {styles.button} onPress={removeSearch}>
           <MaterialIcons name="cancel" size={30} color="black" />
@@ -56,7 +57,6 @@ const styles = StyleSheet.create({
     },
     containerInput:{
       flexDirection:"row",
-
       alignItems:"center",
       justifyContent:"center"
     },

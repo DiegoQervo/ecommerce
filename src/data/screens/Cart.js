@@ -1,9 +1,7 @@
 import { StyleSheet, Text, View, FlatList, Pressable } from 'react-native'
-import cart from '../cart.json'
 import CardCartProduct from '../../components/CardCartProduct'
 import { colors } from '../../globals/colors'
-import Counter from '../../components/Counter'
-import usePostOrdersMutation from '../../services/orders'
+import {usePostOrdersMutation} from '../../services/orders'
 import { useSelector } from 'react-redux'
 import { useGetCartQuery, useDeleteCartMutation } from '../../services/cart'
 import { useEffect, useState } from 'react'
@@ -68,19 +66,20 @@ const styles = StyleSheet.create({
   },  
   containerTotal:{
     width:"100%",
-    backgroundColor:"red",
+    backgroundColor:colors.accent,
     flexDirection:"row",
     padding:15,
     justifyContent:"space-around",
     alignItems:"center",
-    position:"absolute"
+    position:"absolute",
+    bottom:0
   },
   text:{
     color:colors.lightGray,
     fontSize:16,
   },
   button:{ 
-    backgroundColor:colors.accent,
+    backgroundColor:colors.primary,
     padding:10,
     borderRadius:5
   },

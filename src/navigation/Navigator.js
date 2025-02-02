@@ -1,13 +1,14 @@
-import React, { useEffect } from 'react'
+
 import { NavigationContainer } from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { colors } from '../globals/colors'
 import { StyleSheet } from 'react-native'
 import TabNavigation from './TabNavigator'
 import { useDispatch, useSelector } from 'react-redux'
 import AuthStack from './AuthStack'
 import { fetchSession } from '../config/dbSQL'
-import { setUser } from '../features/userSlice'
-import { deleteUser } from '../features/userSlice'
+import { useEffect } from 'react'
+import { deleteUser, setUser } from '../features/userSlice'
 import { init } from '../config/dbSQL'
 
 const Tab = createBottomTabNavigator();
@@ -45,6 +46,7 @@ export default Navigator
 
 const styles = StyleSheet.create({
   tabBar:{
-
+    backgroundColor:colors.primary,
+    height:70
   }
 })

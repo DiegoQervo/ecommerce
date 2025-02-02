@@ -1,24 +1,28 @@
-import { StyleSheet, Text, View, Image, Text} from 'react-native'
-import React, { useState } from 'react'
+import { StyleSheet, Text, View, Image} from 'react-native'
 import SubmitButton from '../../components/SubmitButton'
 import { FlatList } from 'react-native-web'
-import { useNavigation } from 'react-router-dom'
+import { useNavigation } from '@react-navigation/native'
 import { useGetUserQuery } from '../../services/user'
 import { useSelector } from 'react-redux'
-import { isLoading } from 'expo-font'
+
+
+
+
+
+
 
 const Myprofile = () => {
 
     const navigation = useNavigation()
     const localId = useSelector(state => state.user.localId)
-    const {data:user} = useGetUserQuery({localId})
+    const {data:user, isLoading} = useGetUserQuery({localId})
 
     if(isLoading) return <View><Text>Cargando...</Text></View>
 
   return (
-    <View>
+    <View style = {styles.container}>
       <Image 
-      source = {user?.image ? {uri:user.image}:require("../../../assets/png")} 
+      source = {user?.image ? {uri:user.image}:require("../../../assets/profile.jpg")} 
       resizeMode = 'cover' 
       style = {styles.image}
       /> //imagen de perfil
@@ -34,4 +38,14 @@ const Myprofile = () => {
 
 export default Myprofile
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  container:{
+    marginTop:70,
+    alignItems:"center",
+    gap:20
+},
+image:{
+    width:150,
+    height:150
+}
+})

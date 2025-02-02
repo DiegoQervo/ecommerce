@@ -1,9 +1,9 @@
-import { FlatList, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native'
+import { FlatList, StyleSheet, Text, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import Search from '../../components/Search'
 import CardProduct from '../../components/CardProduct'
 import { useGetCategoriasQuery } from '../../services/shop'
-import { data } from 'react-router-dom'
+import LoadingSpinner from '../../components/LoadingSpinner'
 
 
 
@@ -23,7 +23,7 @@ const ProductsByCategory = ({route}) => {
   },[isSuccess,data])
 
   useEffect(() => {
-    if(!isError){
+    if(isError){
       console.log(error)}},[isError,error])
 
   useEffect(() => {
@@ -32,7 +32,7 @@ const ProductsByCategory = ({route}) => {
     }
   },[keyword,isSuccess])
 
-  if(isLoading) return <View><Text>Cargando...</Text></View>
+  if(isLoading) return <LoadingSpinner/>
   if(isError) return <View><Text>{error.message}</Text></View>
 
 
@@ -51,13 +51,5 @@ const ProductsByCategory = ({route}) => {
 export default ProductsByCategory
 
 const styles = StyleSheet.create({
-  container:{
-    flex:1
-  },
-  containerProducts:{
-    flexDirection:"row",
-    flexWrap:"wrap",
-    justifyContent:"space-around"
-  }
 
 })
