@@ -8,6 +8,7 @@ import { colors } from '../globals/colors'
 import Myprofile from '../data/screens/Myprofile'
 import MyProfileStack from './MyProfileStack'
 
+
 const Tab = createBottomTabNavigator();
 
 const TabNavigation = () => {
@@ -35,7 +36,7 @@ const TabNavigation = () => {
         name = 'CartStack' 
         component={CartStack}
         options={{
-          tabBarIcon:({focused}) => <tabBarIcon text = "Carrito" icon="shopping-cart" focused = {focused}/>
+          tabBarIcon:({focused}) => <TabBarIcon text = "Carrito" icon="shopping-cart" focused = {focused}/>
         }}/>
 
         <Tab.Screen 
@@ -43,7 +44,7 @@ const TabNavigation = () => {
         name = 'OrdersStack' 
         component={OrderStack}
         options={{
-          tabBarIcon:({focused}) => <tabBarIcon text = "Ordenes" icon = "list" focused = {focused}/>
+          tabBarIcon:({focused}) => <TabBarIcon text = "Ordenes" icon = "list" focused = {focused}/>
         }}/>
 
         <Tab.Screen 
@@ -51,7 +52,7 @@ const TabNavigation = () => {
         name = 'MyProfileStack' 
         component={MyProfileStack}
         options={{
-          tabBarIcon:({focused}) => <tabBarIcon text = "Perfil" icon = "user" focused = {focused}/>
+          tabBarIcon:({focused}) => <TabBarIcon text = "Perfil" icon = "user" focused = {focused} />
         }}/>
 
       </Tab.Navigator>
@@ -60,11 +61,15 @@ const TabNavigation = () => {
   )
 }
 
-export default TabNavigation
+
 
 const styles = StyleSheet.create({
   tabBar:{
-    backgroundColor:colors.primary,
-    height:70
+    backgroundColor:colors.accent,
+    height:90
 }
+
+
 })
+
+export default TabNavigation

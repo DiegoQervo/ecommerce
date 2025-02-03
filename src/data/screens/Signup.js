@@ -25,14 +25,19 @@ const Signup = () => {
 
     const onSubmit = async () => {
       try{
+        console.log("Validating schema...");
         signupSchema.validateSync({email,password, confirmPassword});
 
+        console.log("Triggering signup...");
         const response = await triggerSignup({email,password})
+        console.log("Signup response:", response);
+        
         const user = {
           email:response.data.email,
           idToken:response.data.idToken,
           localId:response.data.localId
-        }
+        };
+        console.log("User data:", user);
         dispatch(setUser(user))
                 await deleteSesion()
                 await insertSession(user.localId,user.email,user.idToken)

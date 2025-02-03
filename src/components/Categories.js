@@ -23,6 +23,6 @@ export default Categories
 
 const styles = StyleSheet.create({
   containerCard:{
-    paddingBottom:60
+    paddingBottom:60,
   }
 })

@@ -1,8 +1,11 @@
-import { StyleSheet, View, Button } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import Categories from '../../components/Categories'
 
 
+
 const Home = () => {
+
+
   return (
     <View>
       <Categories/>
@@ -12,4 +15,3 @@ const Home = () => {
 
 export default Home
 
-const styles = StyleSheet.create({})

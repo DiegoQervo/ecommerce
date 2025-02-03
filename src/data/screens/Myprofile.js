@@ -1,6 +1,5 @@
 import { StyleSheet, Text, View, Image} from 'react-native'
 import SubmitButton from '../../components/SubmitButton'
-import { FlatList } from 'react-native-web'
 import { useNavigation } from '@react-navigation/native'
 import { useGetUserQuery } from '../../services/user'
 import { useSelector } from 'react-redux'

@@ -1,4 +1,4 @@
-import { Pressable, StyleSheet, Pressable} from 'react-native'
+import { Pressable, StyleSheet} from 'react-native'
 import { colors } from '../globals/colors'
 import ShadowCard from './ShadowCard'
 import TextPrimary from './TextPrimary'

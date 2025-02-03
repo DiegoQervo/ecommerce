@@ -17,8 +17,8 @@ export const init = async () => {
 export const insertSession = async (localId,email,idToken) => {
     try{
         const db = await SQLite.openDatabaseAsync("session.db")
-        const newSession = await db.runAsync(`
-            INSERT INTO sessionUser (localId,email,idToken) VALUES (?,?,?)`, [localId,email,idToken])
+        const newSession = await db.runAsync(            
+            `INSERT INTO sessionUser (localId,email,idToken) VALUES (?,?,?)`, [localId,email,idToken])
             return newSession
 
     }catch(error){
@@ -30,9 +30,10 @@ export const insertSession = async (localId,email,idToken) => {
 export const fetchSession = async () => {
     try{
         const db = await SQLite.openDatabaseAsync("session.db")
-        const SessionUser = await db.getFirstAsync(
-            `SELECT * FROM sessionUser`)
-            return SessionUser
+        const sessionUser = await db.getFirstAsync(
+            `SELECT * FROM sessionUser`
+        )
+            return sessionUser
 
     }catch(error){
         return error

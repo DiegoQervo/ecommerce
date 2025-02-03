@@ -5,7 +5,7 @@ import { shopApi } from "../services/shop";
 import { setupListeners } from "@reduxjs/toolkit/query";
 import { ordersApi } from "../services/orders";
 import { authApi } from "../services/auth";
-import  useReducer  from "../features/userSlice";
+import  userReducer  from "../features/userSlice";
 import { userApi } from "../services/user";
 import { cartApi } from "../services/cart";
 
@@ -13,7 +13,7 @@ export const store = configureStore({
     reducer:{
         counter:counterReducer,
         shop:shopReducer,
-        user:useReducer,
+        user:userReducer,
         [shopApi.reducerPath]:shopApi.reducer,
         [ordersApi.reducerPath]:ordersApi.reducer,
         [authApi.reducerPath]:authApi.reducer,

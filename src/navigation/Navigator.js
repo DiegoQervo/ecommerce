@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { colors } from '../globals/colors'
 import { StyleSheet } from 'react-native'
-import TabNavigation from './TabNavigator'
+import TabNavigator from './TabNavigator'
 import { useDispatch, useSelector } from 'react-redux'
 import AuthStack from './AuthStack'
 import { fetchSession } from '../config/dbSQL'
@@ -25,6 +25,7 @@ const Navigator = () => {
           await init()
           dispatch(deleteUser())
           const sessionUser = await fetchSession()
+          console.log("sessionUser", sessionUser)
           if(sessionUser){
             dispatch(setUser(sessionUser))
           }
@@ -35,9 +36,11 @@ const Navigator = () => {
       })()
     }, [])
 
+
+
   return (
     <NavigationContainer>
-      {idToken ? <TabNavigation/>: <AuthStack/>}
+      {idToken ? <TabNavigator/>: <AuthStack/>}
     </NavigationContainer>
   )
 }

@@ -1,5 +1,5 @@
 
-import { StatusBar } from 'react-native';
+import { StatusBar, StyleSheet } from 'react-native';
 import { colors } from './src/globals/colors';
 import Navigator from './src/navigation/Navigator';
 import { useFonts } from 'expo-font';
