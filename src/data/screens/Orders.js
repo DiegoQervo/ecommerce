@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, FlatList } from 'react-native'
 import CardOrder from '../../components/CardOrder'
 import { useSelector } from 'react-redux'
-import { useGetOrdersUserQuery } from '../../services/orders'
+import { useGetOrderUserQuery } from '../../services/orders'
 import LoadingSpinner from '../../components/LoadingSpinner'
 import EmptyListComponent from '../../components/EmptyListComponent'
 
@@ -10,7 +10,7 @@ import EmptyListComponent from '../../components/EmptyListComponent'
 const Orders = () => {
 
   const localId = useSelector(state => state.user.localId)
-  const {data:orders,isLoading} = useGetOrdersUserQuery({localId})
+  const {data:orders,isLoading} = useGetOrderUserQuery({localId})
 
   if(isLoading) return <LoadingSpinner/>
   if(!orders) return <EmptyListComponent message = "No hay ordenes"/>

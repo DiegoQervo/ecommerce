@@ -41,7 +41,7 @@ const TabNavigation = () => {
 
         <Tab.Screen 
 
-        name = 'OrdersStack' 
+        name = 'OrderStack' 
         component={OrderStack}
         options={{
           tabBarIcon:({focused}) => <TabBarIcon text = "Ordenes" icon = "list" focused = {focused}/>

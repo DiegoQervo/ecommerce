@@ -1,10 +1,11 @@
 import { StyleSheet, FlatList, View, Text} from 'react-native'
 import CardItemCategory from './CardItemCategory' 
-import { useGetCategoriasQuery } from '../services/shop'
+import { useGetCategoriesQuery } from '../services/shop'
 
 
 const Categories = () => {
-  const {data:categories, isLoading, isError, error} = useGetCategoriasQuery()
+  const {data:categories, isLoading, isError, error} = useGetCategoriesQuery()
+
 
   if(isLoading) return <View><Text>Cargando...</Text></View>
   if(isError) return <View><Text>{error.message}</Text></View>
@@ -17,6 +18,7 @@ const Categories = () => {
     contentContainerStyle = {styles.containerCard}
     />
   )
+
 }
 
 export default Categories

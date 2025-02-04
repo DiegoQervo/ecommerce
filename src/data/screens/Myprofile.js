@@ -5,11 +5,6 @@ import { useGetUserQuery } from '../../services/user'
 import { useSelector } from 'react-redux'
 
 
-
-
-
-
-
 const Myprofile = () => {
 
     const navigation = useNavigation()

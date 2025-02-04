@@ -2,8 +2,9 @@ import { FlatList, StyleSheet, Text, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import Search from '../../components/Search'
 import CardProduct from '../../components/CardProduct'
-import { useGetCategoriasQuery } from '../../services/shop'
+import { useGetCategoriesQuery } from '../../services/shop'
 import LoadingSpinner from '../../components/LoadingSpinner'
+import { useRoute } from '@react-navigation/native'
 
 
 
@@ -11,26 +12,27 @@ import LoadingSpinner from '../../components/LoadingSpinner'
 const ProductsByCategory = ({route}) => {
 
 
-  const {category} = route.params
-  const {data, isSuccess,isError,error,isLoading} = useGetCategoriasQuery(category)
+  const { category } = route.params || {}
+  const {data, isSuccess,isError,error,isLoading} = useGetCategoriesQuery(category)
   const [keyword, setKeyword] = useState("")
   const [products, setProducts] = useState([])
 
+
+  if(!category){
+    return <Text>La categoria no esta disponible</Text>
+  }
+
+
   useEffect(()=>{
     if(isSuccess){
-      setProducts(Object.values(data))
+      const filteredProducts = Object.values(data).filter(product => product.title.toLowerCase().includes(keyword.toLowerCase()));
+      setProducts(filteredProducts)
     }
-  },[isSuccess,data])
+  },[isSuccess,data,keyword])
 
   useEffect(() => {
     if(isError){
       console.log(error)}},[isError,error])
-
-  useEffect(() => {
-    if(isSuccess){
-      setProducts(Object.values(data).filter(product => product.title.includes(keyword)))
-    }
-  },[keyword,isSuccess])
 
   if(isLoading) return <LoadingSpinner/>
   if(isError) return <View><Text>{error.message}</Text></View>

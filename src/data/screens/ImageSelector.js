@@ -7,7 +7,7 @@ import { useNavigation } from '@react-navigation/native';
 import { useState } from "react";
 
 
-const ImageSelector = async () => {
+const ImageSelector = () => {
 
     const localId = useSelector(state => state.user.localId)
     const [image, setImage] = useState("")
@@ -26,7 +26,7 @@ const ImageSelector = async () => {
             base64:true,
             allowsEditing:true
         }
-        const result = (method == "camera") ? 
+        const result = (method == "Camera") ? 
         await ImagePicker.launchCameraAsync(config) 
         : 
         await ImagePicker.launchImageLibraryAsync(config)
@@ -36,22 +36,28 @@ const ImageSelector = async () => {
         setImage( "data:image/jpg;base64," + result.assets[0].base64)
     }
     
-    const confirmImage = () => {
-        triggerAddImageProfile({localId, image})
-        navigation.navigate("MyProfile")
-    }
+    const confirmImage = async () => {
+        try {
+            const response = await triggerAddImageProfile({ localId, image }).unwrap(); 
+            console.log("Imagen subida con éxito:", response); 
+            navigation.navigate("MyProfile"); 
+        } catch (error) {
+            console.error("Error al subir la imagen:", error);
+        }
+    };
+    
     return (
         <View style = {styles.container}>
             <View style = {styles.containerImage}>
             <Image
-                source={image ? {uri:image} : require("../../../assets/profile.jpg")} //foto de perfil
+                source={image ? {uri:image} : require("../../../assets/profile.jpg")} 
                 resizeMode="contain"
                 style = {styles.image}
                 />
             </View>
                 <SubmitButton title = "tomar imagen con camara" onPress = {() => pickImage("Camera")}/>
-                <SubmitButton title = "tomar imagen de galeria" onPress = {() => pickImage("Library")}/> // porque lo cambio
-                <SubmitButton title = "confirmar" onPress = {confirmImage}/>
+                <SubmitButton title = "tomar imagen de galeria" onPress = {() => pickImage("Library")}/> 
+                <SubmitButton title = {String("Confirmar")} onPress = {confirmImage}/>
         </View>
     )
 }
@@ -67,7 +73,7 @@ const styles = StyleSheet.create({
     containerImage:{
         width:150,
         height:150,
-        borderRadius:"50%",
+        borderRadius:75,
         overflow:"hidden"
     },
     image:{

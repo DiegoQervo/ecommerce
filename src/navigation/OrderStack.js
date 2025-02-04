@@ -6,10 +6,10 @@ import Header from "../components/Header"
 const Stack = createNativeStackNavigator()
 
 const OrderStack = () => {
+  console.log("rendering orderstack")
   return (
     <Stack.Navigator
     screenOptions={({route})=>({
-
       header: () => {
         return <Header title = "Ordenes"/>
       }

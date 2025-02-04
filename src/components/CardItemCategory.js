@@ -2,16 +2,17 @@ import { Pressable, StyleSheet} from 'react-native'
 import { colors } from '../globals/colors'
 import ShadowCard from './ShadowCard'
 import TextPrimary from './TextPrimary'
-import { UseNavigation } from '@react-navigation/native'
+import { useNavigation } from '@react-navigation/native'
 
 
 
 const CardItemCategory = ({item:category}) => {
 
-  const navigation =UseNavigation()
+  const navigation =useNavigation()
 
   return (
     <Pressable onPress={()=> {
+      console.log("categoria seleccionada", category)
       navigation.navigate("ProductsByCategory",{category})
       }}>
 
@@ -36,6 +37,6 @@ const styles = StyleSheet.create({
         borderRadius:7,
     },
     text:{
-        color:colors.lightGray
+        color:"white"
     }
 })

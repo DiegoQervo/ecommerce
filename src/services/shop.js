@@ -9,9 +9,11 @@ export const shopApi = createApi({
             query:(category) => `products.json?orderBy="category"&equalTo="${category}"`
         }),
         getCategories:builder.query({
-            query:() => "categorias.json"
+            query:() => "categorias.json",
+
         }),
     })
 })
+
 
 export const { useGetCategoriesQuery, useGetProductsQuery } = shopApi  
