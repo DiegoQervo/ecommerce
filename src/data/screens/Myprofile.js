@@ -19,7 +19,7 @@ const Myprofile = () => {
       source = {user?.image ? {uri:user.image}:require("../../../assets/profile.jpg")} 
       resizeMode = 'cover' 
       style = {styles.image}
-      /> //imagen de perfil
+      /> 
 
       <SubmitButton title = "agregar imagen de perfil" onPress = {() => navigation.navigate("ImageSelector")}/>
       <SubmitButton title = "agregar ubicacion" onPress = {() => navigation.navigate("LocationSelector")}/>

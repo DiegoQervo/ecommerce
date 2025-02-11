@@ -6,18 +6,18 @@ import { useState } from 'react';
 
 const Search = ({onChangeKeyword}) => {
 
-    const [TextInput,setTextInput] = useState("")
+    const [textInput,setTextInput] = useState("")
     const [error, setError] = useState("")
 
     const search = () => {
       const regex = /[+\-%]/
 
-      if(regex.test(TextInput)){
+      if(regex.test(textInput)){
         return setError("no valido")
       }
       setError("")
 
-      onChangeKeyword(TextInput)
+      onChangeKeyword(textInput)
     }
 
     const removeSearch = () => {
